@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="вид пациента">
+    <Key>
+      <PropertyRef Name="код_вида" />
+    </Key>
+    <Property Name="код_вида" Type="int" Nullable="false" />
+    <Property Name="наименование_вида" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="фотография" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="врачи">
+    <Key>
+      <PropertyRef Name="код_врача" />
+    </Key>
+    <Property Name="код_врача" Type="int" Nullable="false" />
+    <Property Name="ф_врача" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="и_врача" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="о_врача" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="код_специализации" Type="int" Nullable="false" />
+    <Property Name="дата_принятия_на_работу" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="город">
+    <Key>
+      <PropertyRef Name="код_города" />
+    </Key>
+    <Property Name="код_города" Type="int" Nullable="false" />
+    <Property Name="наименование_города" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="диагноз">
+    <Key>
+      <PropertyRef Name="код_диагноза" />
+    </Key>
+    <Property Name="код_диагноза" Type="int" Nullable="false" />
+    <Property Name="наименование_диагноза" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="клиент">
+    <Key>
+      <PropertyRef Name="код_клиента" />
+    </Key>
+    <Property Name="код_клиента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ф_клиента" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="и_клиента" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="о_клиента" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="телефон" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="код_страны" Type="int" Nullable="false" />
+    <Property Name="e-mail" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="код_города" Type="int" Nullable="false" />
+    <Property Name="код_улицы" Type="int" Nullable="false" />
+    <Property Name="номер_дома" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="номер_квартиры" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="лечение">
+    <Key>
+      <PropertyRef Name="код_лечения" />
+    </Key>
+    <Property Name="код_лечения" Type="int" Nullable="false" />
+    <Property Name="код_врача" Type="int" Nullable="false" />
+    <Property Name="дата_обращения" Type="datetime" Nullable="false" />
+    <Property Name="код_диагноза" Type="int" Nullable="false" />
+    <Property Name="дата_выписки" Type="datetime" Nullable="false" />
+    <Property Name="код_услуги" Type="int" Nullable="false" />
+    <Property Name="код_пациента" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="пациент">
+    <Key>
+      <PropertyRef Name="код_пациента" />
+    </Key>
+    <Property Name="код_пациента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="код_клиента" Type="int" Nullable="false" />
+    <Property Name="кличка" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="код_вида" Type="int" Nullable="false" />
+    <Property Name="код_породы" Type="int" Nullable="false" />
+    <Property Name="дата_рождения" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="вес" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="код_пола_пациента" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="пол пациента">
+    <Key>
+      <PropertyRef Name="код_пола_пациента" />
+    </Key>
+    <Property Name="код_пола_пациента" Type="int" Nullable="false" />
+    <Property Name="наименование_пола" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="пользователь">
+    <Key>
+      <PropertyRef Name="код_пользователя" />
+    </Key>
+    <Property Name="код_пользователя" Type="int" Nullable="false" />
+    <Property Name="логин" Type="nvarchar" MaxLength="50" />
+    <Property Name="пароль" Type="nvarchar" MaxLength="50" />
+    <Property Name="код_роли" Type="int" />
+  </EntityType>
+  <EntityType Name="порода пациента">
+    <Key>
+      <PropertyRef Name="код_породы" />
+    </Key>
+    <Property Name="код_породы" Type="int" Nullable="false" />
+    <Property Name="наименование_породы" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="роли">
+    <Key>
+      <PropertyRef Name="код_роли" />
+    </Key>
+    <Property Name="код_роли" Type="int" Nullable="false" />
+    <Property Name="наименование_роли" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="специализация">
+    <Key>
+      <PropertyRef Name="код_специализвции" />
+    </Key>
+    <Property Name="код_специализвции" Type="int" Nullable="false" />
+    <Property Name="наименование_специалиазации" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="страна">
+    <Key>
+      <PropertyRef Name="код_страны" />
+    </Key>
+    <Property Name="код_страны" Type="int" Nullable="false" />
+    <Property Name="наименование_страны" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="улица">
+    <Key>
+      <PropertyRef Name="код_улицы" />
+    </Key>
+    <Property Name="код_улицы" Type="int" Nullable="false" />
+    <Property Name="наименование_улицы" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="услуга">
+    <Key>
+      <PropertyRef Name="код_услуги" />
+    </Key>
+    <Property Name="код_услуги" Type="int" Nullable="false" />
+    <Property Name="наименование_услуги" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="стоимость" Type="float" Nullable="false" />
+    <Property Name="действующая_скидка" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="длительность" Type="int" />
+  </EntityType>
+  <Association Name="FK_врачи_специализация">
+    <End Role="специализация" Type="Self.специализация" Multiplicity="1" />
+    <End Role="врачи" Type="Self.врачи" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="специализация">
+        <PropertyRef Name="код_специализвции" />
+      </Principal>
+      <Dependent Role="врачи">
+        <PropertyRef Name="код_специализации" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_клиент_город">
+    <End Role="город" Type="Self.город" Multiplicity="1" />
+    <End Role="клиент" Type="Self.клиент" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="город">
+        <PropertyRef Name="код_города" />
+      </Principal>
+      <Dependent Role="клиент">
+        <PropertyRef Name="код_города" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_клиент_страна">
+    <End Role="страна" Type="Self.страна" Multiplicity="1" />
+    <End Role="клиент" Type="Self.клиент" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="страна">
+        <PropertyRef Name="код_страны" />
+      </Principal>
+      <Dependent Role="клиент">
+        <PropertyRef Name="код_страны" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_клиент_улица">
+    <End Role="улица" Type="Self.улица" Multiplicity="1" />
+    <End Role="клиент" Type="Self.клиент" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="улица">
+        <PropertyRef Name="код_улицы" />
+      </Principal>
+      <Dependent Role="клиент">
+        <PropertyRef Name="код_улицы" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_лечение_врачи">
+    <End Role="врачи" Type="Self.врачи" Multiplicity="1" />
+    <End Role="лечение" Type="Self.лечение" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="врачи">
+        <PropertyRef Name="код_врача" />
+      </Principal>
+      <Dependent Role="лечение">
+        <PropertyRef Name="код_врача" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_лечение_диагноз">
+    <End Role="диагноз" Type="Self.диагноз" Multiplicity="1" />
+    <End Role="лечение" Type="Self.лечение" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="диагноз">
+        <PropertyRef Name="код_диагноза" />
+      </Principal>
+      <Dependent Role="лечение">
+        <PropertyRef Name="код_диагноза" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_лечение_пациент">
+    <End Role="пациент" Type="Self.пациент" Multiplicity="1" />
+    <End Role="лечение" Type="Self.лечение" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="пациент">
+        <PropertyRef Name="код_пациента" />
+      </Principal>
+      <Dependent Role="лечение">
+        <PropertyRef Name="код_пациента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_лечение_услуга">
+    <End Role="услуга" Type="Self.услуга" Multiplicity="1" />
+    <End Role="лечение" Type="Self.лечение" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="услуга">
+        <PropertyRef Name="код_услуги" />
+      </Principal>
+      <Dependent Role="лечение">
+        <PropertyRef Name="код_услуги" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_пациент_вид пациента">
+    <End Role="вид пациента" Type="Self.вид пациента" Multiplicity="1" />
+    <End Role="пациент" Type="Self.пациент" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="вид пациента">
+        <PropertyRef Name="код_вида" />
+      </Principal>
+      <Dependent Role="пациент">
+        <PropertyRef Name="код_вида" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_пациент_клиент">
+    <End Role="клиент" Type="Self.клиент" Multiplicity="1" />
+    <End Role="пациент" Type="Self.пациент" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="клиент">
+        <PropertyRef Name="код_клиента" />
+      </Principal>
+      <Dependent Role="пациент">
+        <PropertyRef Name="код_клиента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_пациент_пол пациента">
+    <End Role="пол пациента" Type="Self.пол пациента" Multiplicity="1" />
+    <End Role="пациент" Type="Self.пациент" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="пол пациента">
+        <PropertyRef Name="код_пола_пациента" />
+      </Principal>
+      <Dependent Role="пациент">
+        <PropertyRef Name="код_пола_пациента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_пациент_порода пациента">
+    <End Role="порода пациента" Type="Self.порода пациента" Multiplicity="1" />
+    <End Role="пациент" Type="Self.пациент" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="порода пациента">
+        <PropertyRef Name="код_породы" />
+      </Principal>
+      <Dependent Role="пациент">
+        <PropertyRef Name="код_породы" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_пользователь_роли">
+    <End Role="роли" Type="Self.роли" Multiplicity="0..1" />
+    <End Role="пользователь" Type="Self.пользователь" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="роли">
+        <PropertyRef Name="код_роли" />
+      </Principal>
+      <Dependent Role="пользователь">
+        <PropertyRef Name="код_роли" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="вид пациента" EntityType="Self.вид пациента" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="врачи" EntityType="Self.врачи" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="город" EntityType="Self.город" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="диагноз" EntityType="Self.диагноз" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="клиент" EntityType="Self.клиент" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="лечение" EntityType="Self.лечение" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="пациент" EntityType="Self.пациент" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="пол пациента" EntityType="Self.пол пациента" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="пользователь" EntityType="Self.пользователь" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="порода пациента" EntityType="Self.порода пациента" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="роли" EntityType="Self.роли" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="специализация" EntityType="Self.специализация" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="страна" EntityType="Self.страна" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="улица" EntityType="Self.улица" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="услуга" EntityType="Self.услуга" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_врачи_специализация" Association="Self.FK_врачи_специализация">
+      <End Role="специализация" EntitySet="специализация" />
+      <End Role="врачи" EntitySet="врачи" />
+    </AssociationSet>
+    <AssociationSet Name="FK_клиент_город" Association="Self.FK_клиент_город">
+      <End Role="город" EntitySet="город" />
+      <End Role="клиент" EntitySet="клиент" />
+    </AssociationSet>
+    <AssociationSet Name="FK_клиент_страна" Association="Self.FK_клиент_страна">
+      <End Role="страна" EntitySet="страна" />
+      <End Role="клиент" EntitySet="клиент" />
+    </AssociationSet>
+    <AssociationSet Name="FK_клиент_улица" Association="Self.FK_клиент_улица">
+      <End Role="улица" EntitySet="улица" />
+      <End Role="клиент" EntitySet="клиент" />
+    </AssociationSet>
+    <AssociationSet Name="FK_лечение_врачи" Association="Self.FK_лечение_врачи">
+      <End Role="врачи" EntitySet="врачи" />
+      <End Role="лечение" EntitySet="лечение" />
+    </AssociationSet>
+    <AssociationSet Name="FK_лечение_диагноз" Association="Self.FK_лечение_диагноз">
+      <End Role="диагноз" EntitySet="диагноз" />
+      <End Role="лечение" EntitySet="лечение" />
+    </AssociationSet>
+    <AssociationSet Name="FK_лечение_пациент" Association="Self.FK_лечение_пациент">
+      <End Role="пациент" EntitySet="пациент" />
+      <End Role="лечение" EntitySet="лечение" />
+    </AssociationSet>
+    <AssociationSet Name="FK_лечение_услуга" Association="Self.FK_лечение_услуга">
+      <End Role="услуга" EntitySet="услуга" />
+      <End Role="лечение" EntitySet="лечение" />
+    </AssociationSet>
+    <AssociationSet Name="FK_пациент_вид пациента" Association="Self.FK_пациент_вид пациента">
+      <End Role="вид пациента" EntitySet="вид пациента" />
+      <End Role="пациент" EntitySet="пациент" />
+    </AssociationSet>
+    <AssociationSet Name="FK_пациент_клиент" Association="Self.FK_пациент_клиент">
+      <End Role="клиент" EntitySet="клиент" />
+      <End Role="пациент" EntitySet="пациент" />
+    </AssociationSet>
+    <AssociationSet Name="FK_пациент_пол пациента" Association="Self.FK_пациент_пол пациента">
+      <End Role="пол пациента" EntitySet="пол пациента" />
+      <End Role="пациент" EntitySet="пациент" />
+    </AssociationSet>
+    <AssociationSet Name="FK_пациент_порода пациента" Association="Self.FK_пациент_порода пациента">
+      <End Role="порода пациента" EntitySet="порода пациента" />
+      <End Role="пациент" EntitySet="пациент" />
+    </AssociationSet>
+    <AssociationSet Name="FK_пользователь_роли" Association="Self.FK_пользователь_роли">
+      <End Role="роли" EntitySet="роли" />
+      <End Role="пользователь" EntitySet="пользователь" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

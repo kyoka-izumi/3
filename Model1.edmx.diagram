@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c15345bdc6604099bfe74a79bfff5bbd" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="7.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.вид_пациента" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.врачи" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.город" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.диагноз" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.клиент" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.лечение" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.пациент" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.пол_пациента" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.пользователь" Width="1.5" PointX="8" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.порода_пациента" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.роли" Width="1.5" PointX="5.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.специализация" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.страна" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.улица" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.услуга" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_пациент_вид_пациента" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_врачи_специализация" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_лечение_врачи" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_клиент_город" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_лечение_диагноз" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_клиент_страна" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_клиент_улица" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_пациент_клиент" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_лечение_пациент" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_лечение_услуга" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_пациент_пол_пациента" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_пациент_порода_пациента" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_пользователь_роли" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

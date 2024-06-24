@@ -1,0 +1,46 @@
+﻿<Page x:Class="индивид.Pageclient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:индивид"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Pageclient">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="кличка" Background="White" Height="40" FontSize="20" Margin="5" Grid.Column="0"/>
+        <TextBlock Text="фамилия клиента" Background="White" Height="40" FontSize="20" Margin="5" Grid.Row="1"/>
+        <TextBlock Text="порода пациента"  Background="White" Height="40" FontSize="20" Margin="5" Grid.Row="2"/>
+        <TextBlock Text="дата рождения" Height="40" FontSize="20" Background="White" Margin="5" Grid.Row="3"/>
+        <TextBlock Text="вес, кг" Height="40" FontSize="20"  Background="White" Margin="5" Grid.Row="4"/>
+        <TextBlock Text="пол пациента" Background="White" Height="40" FontSize="20" Margin="5" Grid.Column="0" Grid.Row="5"/>
+        <TextBlock Text="вид пациента" Height="40" FontSize="20"  Background="White" Margin="5" Grid.Row="6"/>
+        <TextBox x:Name="Txtclichka" Width="350" Height="40" Margin="5"  Background="White" Grid.Column="1" Grid.Row="0" Text="{Binding кличка}"/>
+        <ComboBox x:Name="Txtvid" Width="350" Height="40" Margin="5"  Background="White" Grid.Column="1" Grid.Row="6" DisplayMemberPath="наименование_вида" SelectedItem="{Binding вид_пациента}"/>
+        <ComboBox x:Name="Txtclient" Width="350" Height="40" Margin="5"  Background="White" Grid.Column="1" Grid.Row="1" DisplayMemberPath="ф_клиента" SelectedItem="{Binding клиент}"/>
+        <ComboBox x:Name="Txtporoda" Width="350" Height="40" Margin="5" Grid.Column="1"  Background="White" Grid.Row="2" DisplayMemberPath="наименование_породы" SelectedItem="{Binding порода_пациента}"/>
+        <TextBox x:Name="Txtdata" Grid.Row="3" Grid.Column="1" Height="40" Width="350"  Background="White" Text="{Binding дата_рождения}"/>
+        <TextBox x:Name="Txtves" Width="350" Height="40" Margin="5" Grid.Column="1" Grid.Row="4" Background="White" Text="{Binding вес}"/>
+        <ComboBox x:Name="Txtpol" Width="350" Height="40" Margin="5" Grid.Column="1" Grid.Row="5" Background="White" DisplayMemberPath="наименование_пола" SelectedItem="{Binding пол_пациента}" />
+        <Button x:Name="BtnSave" Grid.Row="7" Width="60" Height="40" Content="Сохранить" Background="White" Click="BtnSave_Click"/>
+        <TextBlock x:Name="TextBlockyslugiId" Grid.Row="8" Grid.Column="0" Height="56" VerticalAlignment="Bottom" ></TextBlock>
+        <TextBox x:Name="TextBoxId" Grid.Row="7" Grid.Column="1" IsReadOnly="True"></TextBox>
+    </Grid>
+</Page>
